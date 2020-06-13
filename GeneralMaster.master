@@ -1,0 +1,143 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="GeneralMaster.master.cs" Inherits="GeneralMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="CSS/GeneralStyle.css" rel="stylesheet" type="text/css" />
+    <link href="images/ggllogo1.png" rel="icon" />
+    <script>
+        var imglist1 = ["GGL_ss1.jpg", "GGL_ss2.jpg", "GGL_S3.jpg", "GGL_S4.jpg", "GGL_S5.jpg","taj.jpeg"];
+        var imglist2 = ["GGL_S1.jpg", "GGL_S2.jpg", "GGL_ss3.jpg", "GGL_ss4.jpg","GGL_ss5.jpg","GGL_S7.jpg"];
+        var imgno1 = 0;
+        var imgno2 = 0;
+        function moveslider()
+        {
+            if (imgno1 > imglist1.length - 1 && imgno2 > imglist2.length - 1)
+            {
+                imgno1 = 0;
+                imgno2 = 0;
+            }
+            document.getElementById("slide1").src = "SliderImages/" + imglist1[imgno1];
+            document.getElementById("slide2").src = "SliderImages/" + imglist2[imgno2];
+            imgno1++;
+            imgno2++;
+            window.setTimeout("moveslider()", 3000);
+        }
+    </script>
+</head>
+<body onload="moveslider()">
+    <form id="form1" runat="server">
+    <div id="outer">
+        <div id="header">
+            <div id="logo">
+                <asp:Image ID="Image1" runat="server" ImageUrl="~/images/gglLogo1.gif"  Height="120px" Width="120px" />
+            </div>
+            <div id="sitetitle">
+                <div id="site_upper">Green Gas Limited</div>
+                <div id="site_lower">A join venture of GAIL and Indian Oil....</div>              
+           </div>
+            
+            <div id="detail">
+                <br /><br /><br />
+                <span>Emegency Helpline Number<br />Lucknow:99351103999<br />Agra:8126904002</span><br /><br />
+               <a href="http://www.facebook.com"><img class="iconstyle" src="images/facebook.png" /></a>
+                <a href="http://www.twitter.com"><img class="iconstyle" src="images/Twitter.png" /></a>
+                <a href="http://www.google.com"><img class="iconstyle" src="images/google+.png" /></a>
+                <a href="http://www.linkedin.com"><img class="iconstyle" src="images/LinkedIn.png"/></a>
+                <a href="http://www.blogger.com"><img class="iconstyle" src="images/blogger.png" /></a>
+            </div>
+        </div>
+        <div id="menu">
+            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" StaticEnableDefaultPopOutImage="False">
+                <DynamicHoverStyle BackColor="Green" ForeColor="#CCCC00" />
+                <DynamicMenuItemStyle BackColor="#EBEBEB" Font-Size="15pt" ForeColor="#333333" HorizontalPadding="27px" VerticalPadding="10px" />
+                <Items>
+                    <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Default.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Area &amp; Infrastructure" Value="Area &amp; Infrastructure">
+                        <asp:MenuItem NavigateUrl="~/AreaandInfrastructure.aspx" Text="Lucknow" Value="Lucknow"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/AreaandInfrastructure1.aspx" Text="Agra" Value="Agra"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Consumer Registration" Value="Consumer Registration" NavigateUrl="~/Registration.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Contact Us" Value="Enquiry" NavigateUrl="~/ContactUs.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Image Gallery" Value="Image Gallery" NavigateUrl="~/ImgGallery.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Login" Value="Login" NavigateUrl="~/Login.aspx"></asp:MenuItem>
+                </Items>
+                <StaticHoverStyle BackColor="#EBEBEB" ForeColor="#333333" BorderStyle="None" Font-Bold="False" Height="24px" />
+                <StaticMenuItemStyle Font-Size="15" HorizontalPadding="27px" VerticalPadding="10px" ForeColor="#EFEF09" BackColor="Green" Font-Bold="False" />
+            </asp:Menu>
+            </div>
+        <div id="slider">
+            <div class="slidepart"><img id="slide1" width="473" height="283" /></div>
+            <div class="slidepart"><img id="slide2" width="473" height="283" /></div>      
+        </div>
+        <div id="container">
+            <div id="left">
+                <div id="left_upper">
+                    <span style="font-size:18px">Quick Links</span><hr style="width:80%; margin:auto; color:#dddddd";/><br />
+                    <img src="images/mpang.gif"/> <br />
+                    <a href="http://www.petrolium.nic.in">Ministry of petrolium and Natural Gas</a><br /><br />                  
+                    <img  src="images/Indian_oil_Logo.png" height="70" width="71"/> <br />
+                    <a href="http://www.iocl.com">Indian Oil Corporation Limited(IOCL)</a><br /><br />
+                    <img  src="images/GAIL_Logo.svg.png" height="60" width="110"/><br />
+                    <a href="http://www.gailonline.com">GAIL(India) Limited</a><br /><br />
+                </div>
+                <div id="left_lower">
+                 <p style="background:orange;font-size:18px; text-align:center; margin-bottom:10px">Notifications</p>
+                <marquee direction="up" onmouseover="stop();" onmouseout="start()" height="250" scrollamount="3">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="NID" DataSourceID="SqlDataSource1" ShowHeader="False" GridLines="None">
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Label ID="LblMessage" runat="server" Text='<%#Eval("NMessage") %>' ForeColor="Green"/>
+                                <br />
+                                <asp:Label ID="LblDate" runat="server" Text='<%#Eval("NDT") %>' ForeColor="Red" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+                </marquee>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [TblNotification] ORDER BY [NID] DESC"></asp:SqlDataSource>
+              </div>  
+             </div>
+            <div id="main">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="f_top">
+              <div class="footerpart">
+                    <div id="ftr_upper">
+                       Follow Us:  
+                    </div>
+                    <div id="ftr_lower">
+                        <a href="http://www.facebook.com"><img class="icon" src="images/facebook.png" title="Facebook"/></a>
+                        <a href="http://www.twitter.com"><img class="icon" src="images/Twitter.png" title="Google+"/></a>
+                        <a href="http://www.google.com"><img class="icon" src="images/google+.png" title="Twitter"/></a>
+                        <a href="http://www.linkedin.com"><img class="icon" src="images/LinkedIn.png" title="You Tube"/></a>
+                        <a href="http://www.blogger.com"><img class="icon" src="images/blogger.png" title="Linked In"/></a>
+                      
+                   </div>
+              </div>
+              <div class="footerpart">
+              <img id="footerpic" src="images/picture.jpg"/>
+              </div>
+            </div>
+            <div id="f_bottom">  
+                <div class="f_bottom_part" >
+                   Copyright &copy; To:<a href="http://www.softproindia.org">Softpro India Computer Technology (P) Ltd. Lucknow.</a>
+                </div>          
+                <div class="f_bottom_part">
+                    Developed By:<span style="color:#efef09"> Lalita</span> &nbsp; &nbsp; College:<a href="http://www.ggpvaranasi.in" style="color:#efef09"> Govt. Girl's Polytechnic Varanasi.</a>
+                </div> 
+           </div>
+       </div>
+   </div>
+    </form>
+</body>
+</html>

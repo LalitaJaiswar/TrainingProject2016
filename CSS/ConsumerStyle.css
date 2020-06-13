@@ -1,0 +1,114 @@
+﻿body 
+{
+}
+* 
+{
+    padding:0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+}
+#outer 
+{
+    width:1000px;
+    height:auto;
+    margin:0px auto;
+    font-family:Calibri;
+    box-shadow:0px 0px 30px gray;
+    border-radius:5px;
+}
+#header 
+{
+    height:150px;
+    width:1000px;
+
+}
+#logo 
+{ 
+    width:145px;
+    height:140px;
+    float:left;
+    padding:10px 0px 0px 5px;
+}
+#sitetitle 
+{
+    height:140px;
+    width:700px;
+    color:green;
+    text-align:center;
+    padding-top:10px;    
+    float:left;   
+    font-weight:bold;
+}
+#upic 
+{
+    width:150px;
+    height:150px;
+    float:left;
+    text-align:center;
+}
+#UserPic 
+{
+    height:90px;
+    width:90px;
+    border:5px double #129d0c;
+    margin-left:25px;
+    margin-right:25px;
+    margin-top:10px;
+    border-radius:5px;
+}
+#menu 
+{
+    width:1000px;
+    height:44px;
+    background:green;
+    color:white;
+    margin-top:2px;
+    margin-bottom:2px;
+}
+#main 
+{
+    height:auto;
+    width:1000px;
+    min-height:400px;
+    background-size:100% 100%;
+}
+#heading 
+{
+    height:40px;
+    width:900px;
+    margin:0 auto;
+    font-size:25px;
+    color:white;
+    text-align:center;
+}
+#content 
+{
+    height:auto;
+    min-height:400px;
+    width:1000px;
+    padding:0px 0px 50px 0px;
+}
+#footer 
+{
+    height:50px;
+    width:1000px;
+    margin-top:2px;
+    background:#2c6118;
+    color:#d5ea1b;
+    font-size:16px;
+    border-radius:0px 0px 5px 5px;
+}
+.fpart 
+{
+    height:35px;
+    width:500px;
+    float:left;
+    padding-top:15px;
+    text-align:center;
+}
+#footer a 
+{
+    text-decoration:none;
+    color:#d5ea1b;
+}

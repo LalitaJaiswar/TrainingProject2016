@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminMaster.master.cs" Inherits="AdminZone_AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../CSS/AdminStyle.css" rel="stylesheet" />
+    <link href="../images/ggllogo1.png" rel="icon" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="outer">
+        <div id="header">
+            <div id="logo"><img src="../images/gglLogo1.gif" height="120" width="120" /></div>
+            <div id="sitetitle">
+                <span style="font-size:70px; padding-left:150px; text-shadow:0px 4px 4px gray;">Green Gas Limited</span><br />
+                <span style="font-size:20px;font-family:'Monotype Corsiva'; padding-left:350px; line-height:10px;">-A join venture of GAIL and Indian OIL...</span>
+            </div>
+        </div>
+        <div id="main">
+            <div id="menu">
+                <asp:Menu ID="Menu1" runat="server" StaticEnableDefaultPopOutImage="False" >
+                    <DynamicHoverStyle BackColor="Green" ForeColor="#CCCC00" />
+                    <DynamicMenuItemStyle BackColor="White" Font-Bold="True" Font-Size="Large" ForeColor="Green" HorizontalPadding="18px" VerticalPadding="20px" />
+                    <Items>
+                        <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/AdminZone/Home.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Consumer" Value="Consumer">
+                            <asp:MenuItem Text="Consumer Management" Value="Consumer Management" NavigateUrl="~/AdminZone/UserManagement.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Review Management" Value="Review Management" NavigateUrl="~/AdminZone/ReviewMgmt.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Booking Management" Value="Booking Management" NavigateUrl="~/AdminZone/BookingManagement.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Bill Generation" Value="Bill Generation" NavigateUrl="~/AdminZone/BillGeneration.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Login Info" Value="Login Info" NavigateUrl="~/AdminZone/LoginInfo.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Response Mgmt" Value="Response Mgmt">
+                            <asp:MenuItem Text="Enquiry Management" Value="Enquiry Management" NavigateUrl="~/AdminZone/EnquiryMgmt.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Feedback Management" Value="Feedback Management" NavigateUrl="~/AdminZone/FeedbackMgmt.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Send SMS" Value="Send SMS" NavigateUrl="~/AdminZone/SendSMS.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Notification Mgnt" Value="Notification" NavigateUrl="~/AdminZone/NotificationMgnt.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Settings" Value="Settings">
+                            <asp:MenuItem Text="Change Password" Value="Change Password" NavigateUrl="~/AdminZone/ChangePassword.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Logout" Value="Logout" NavigateUrl="~/AdminZone/Logout.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                    <StaticHoverStyle BackColor="Green" ForeColor="#CCCC00" />
+                    <StaticMenuItemStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="Large" ForeColor="Green" HorizontalPadding="21px" VerticalPadding="20px" />
+                </asp:Menu>
+            </div>
+            <div id="content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="fpart">
+                <span style="color:white">Copyright &copy; To:</span> <a href="http://www.softproindia.org">Softpro India Computer Technologies (P) Ltd.</a>
+            </div>
+            <div class="fpart">
+               <span style="color:white"> Devloped By:</span> Lalita Jaiswar&nbsp; <span style="color:white">College:</span><a href="http://www.ggpvaranasi.in" style="color:#efef09"> Govt. Girls Polytechnic Varanasi</a>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
